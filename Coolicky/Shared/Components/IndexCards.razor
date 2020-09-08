@@ -1,0 +1,67 @@
+﻿@inject NavigationManager NavigationManager
+
+<div class="container">
+    <div class="card-deck">
+        <div class="col-sm-12 col-md-6 col-lg-4" @onclick="@(() => Redirect("showcase/API"))">
+            <div class="card" style="width: 18rem;">
+                <img src="images/index/Index_Revit.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Revit & Navisworks API</h5>
+                    <p class="card-text">Autodesk Revit Automation programming. Dynamo, Python & Custom Plugins </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card" style="width: 18rem;" @onclick="@(() => Redirect("showcase/BIM"))">
+                <img src="images/index/Index_BIM.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">BIM</h5>
+                    <p class="card-text">Revit, 3Ds Max, Sketchup, BIM Management. Advanced building modeling & data management  </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card" style="width: 18rem;" @onclick="@(() => Redirect("showcase/Programming"))">
+                <img src="images/index/Index_C.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">C# Programming</h5>
+                    <p class="card-text">WPF, Xamarin, UWP, Web and more with Microsoft .NET Framework</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card" style="width: 18rem;" @onclick="@(() => Redirect("showcase/VirtualReality"))">
+                <img src="images/index/Index_VR.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Virtual Reality</h5>
+                    <p class="card-text">Immersive VR Applications for advanced Training, Safety, Sales and more.  </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4" @onclick="@(() => Redirect("showcase/Visualizations"))">
+            <div class="card" style="width: 18rem;">
+                <img src="images/index/Index_Render.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Visualization</h5>
+                    <p class="card-text">3D Rendering (image and video) for architectural, infrastructure or product presentation</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4" @onclick="@(() => Redirect("showcase/Unreal"))">
+            <div class="card" style="width: 18rem;">
+                <img src="images/index/Index_Unreal.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Unreal Engine</h5>
+                    <p class="card-text">Custom built applications tailored for client's specific purpose using latest 3D Engine</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+
+    private void Redirect(string url)
+    {
+        NavigationManager.NavigateTo(url);
+    }
+}

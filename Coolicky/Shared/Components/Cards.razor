@@ -1,0 +1,97 @@
+﻿@inject NavigationManager NavigationManager
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12 py-2 my-4">
+            <a href="showcase/API" class="showcase-card">
+                <div class="card">
+                    <img src="images/index/Index_Revit.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Revit & Navisworks API</h5>
+                        <p class="card-text">Autodesk Revit Automation programming. Dynamo, Python & Custom Plugins </p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <p class="card-overlay-text">See more</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 py-2 my-4">
+            <a href="showcase/BIM" class="showcase-card">
+                <div class="card">
+                    <img src="images/index/Index_BIM.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">BIM</h5>
+                        <p class="card-text">Revit, 3Ds Max, Sketchup, BIM Management. Advanced building modeling & data management  </p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <p class="card-overlay-text">See more</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 py-2 my-4">
+            <a href="showcase/Programming" class="showcase-card">
+                <div class="card">
+                    <img src="images/index/Index_C.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">C# Programming</h5>
+                        <p class="card-text">WPF, Xamarin, UWP, Web and more with Microsoft .NET Framework</p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <p class="card-overlay-text">See more</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 py-2 my-4">
+            <a href="showcase/VirtualReality" class="showcase-card">
+                <div class="card">
+                    <img src="images/index/Index_VR.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Virtual Reality</h5>
+                        <p class="card-text">Immersive VR Applications for advanced Training, Safety, Sales and more.  </p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <p class="card-overlay-text">See more</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 py-2 my-4">
+            <a href="showcase/Visualizations" class="showcase-card">
+                <div class="card">
+                    <img src="images/index/Index_Render.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Visualization</h5>
+                        <p class="card-text">3D Rendering (image and video) for architectural, infrastructure or product presentation</p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <p class="card-overlay-text">See more</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 py-2 my-4">
+            <a href="showcase/Unreal" class="showcase-card">
+                <div class="card">
+                    <img src="images/index/Index_Unreal.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Unreal Engine</h5>
+                        <p class="card-text">Custom built applications tailored for client's specific purpose using latest 3D Engine</p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <p class="card-overlay-text">See more</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+@code {
+
+    private void Redirect(string url)
+    {
+        NavigationManager.NavigateTo(url);
+    }
+}

@@ -1,7 +1,48 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<div class="flex-column container d-flex">
+    <div class="mx-4 my-5">
+        <h1 class="display-2 font-weight-bold">Welcome!</h1>
+        <hr class="hr-large border-white my-4 ml-0 text-left w-25" />
+        <p class="lead secondary-text">Hi, below you can find my portfolio of work. </p>
+    </div>
+</div>
 
-Welcome to your new app.
+<Cards />
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<div class="this-webpage ">
+    <div class="container">
+        <p class="h1 display-4 my-3">The webpage you are browsing has been created using Blazor and ASP.NET</p>
+        <p class="h3"> Please go ahead and click below to see more of its features</p>
+        <a href="#" class="btn btn-outline-dark btn-lg my-4">Click Me!</a>
+    </div>
+</div>
+<div class="about">
+    <div class="container py-5">
+        <p class="h2 mb-3 font-weight-bolder mt-5">About</p>
+        <p class="h5 mb-1 ">Piotr Kulicki</p>
+        <p class="h6 text-muted mb-3 font-italic">Coolicky</p>
+        <p class="mb-1">Digital Technologist & Programmer</p>
+        <p class="mb-1 about-text">
+            Former architect with experience in design, construction and especially Autodesk software
+        </p>
+        <div class="row mt-4">
+            <div class="col-md-4 col-lg-4 col-sm-12 py-2 my-4 ">
+                <a href="https://www.linkedin.com/in/coolicky/" target="_blank">
+                    <img src="images/icons/Linkedin.png" height="30" />
+                </a>
+            </div>
+
+            <div class="col-md-4 col-lg-4 col-sm-12 py-2 my-4">
+                <a href="https://github.com/Coolicky" target="_blank">
+                    <img src="images/icons/GitHub_Logo_White.png" height="30" />
+                </a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12 py-2 my-4">
+                <a href="mailto:coolicky@gmail.com">
+                    <img src="images/icons/Gmail.png" height="30" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

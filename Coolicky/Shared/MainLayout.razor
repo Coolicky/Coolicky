@@ -1,15 +1,12 @@
 ﻿@inherits LayoutComponentBase
-
-<div class="sidebar">
-    <NavMenu />
-</div>
-
-<div class="main">
-    <div class="top-row px-4">
-        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+<div class="w-100 h-100 mx-auto flex-column d-flex">
+    <div class=" nav-main sticky-top mb-5">
+        <NavBar />
     </div>
 
-    <div class="content px-4">
-        @Body
-    </div>
+    @Body
+
+    <footer id="sticky-footer" class=" mt-auto py-3 text-center">
+        <span class="text-muted">&copy 2020 - Coolicky</span>
+    </footer>
 </div>
