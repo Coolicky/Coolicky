@@ -1,0 +1,19 @@
+name: "Deploy Website"
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build, Push and Deploy to Heroku
+        id: heroku
+        uses: jctaveras/heroku-deploy@v2.0.3
+        with:
+          email: ${{ secrets.HEROKU_LOGIN }}
+          api_key: ${{ secrets.HEROKU_KEY }}
+          app_name: ${{ secrets.HEROKU_APP }}
+          dockerfile_path: "Coolicky/Dockerfile"
