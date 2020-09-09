@@ -16,4 +16,4 @@ jobs:
           email: ${{ secrets.HEROKU_LOGIN }}
           api_key: ${{ secrets.HEROKU_KEY }}
           app_name: ${{ secrets.HEROKU_APP }}
-          dockerfile_path: "Coolicky/"
+          dockerfile_path: ""
