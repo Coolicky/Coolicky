@@ -43,6 +43,6 @@ jobs:
           
           # Dokerfile directory.
           # For example, if you have a Dockerfile in the root of your project, leave it as follows:
-          dockerfile_directory: ./Coolicky/Coolicky
+          dockerfile_directory: ./Coolicky/
           
 ### ⬆ IMPORTANT PART ⬆ ###
