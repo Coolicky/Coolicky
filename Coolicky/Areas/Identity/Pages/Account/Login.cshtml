@@ -4,30 +4,12 @@
 @{
 }
 
-<div class="row">
+<div class="row h-100">
     <div class="col-12 form-signin">
         <section>
             <form id="account" method="post">
                 <div class="text-center">
-                    @*<img class="mb-4" src="images/Coolicky_Logo_W.svg" height="72" width="72" />*@
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                         viewBox="0 0 96 96" style="enable-background:new 0 0 96 96;" xml:space="preserve" height="72" width="72" class="mb-4 logo">
-                    <style type="text/css">
-                        .st0 {
-                            fill: none;
-                            stroke: #FFFFFF;
-                            stroke-width: 5;
-                            stroke-miterlimit: 10;
-                        }
-</style>
-                    <g>
-                    <path class="st0" d="M50.3,93c-12,0-23.3-4.7-31.9-13.2S5.2,60,5.2,48c0-12,4.7-23.3,13.2-31.9C26.9,7.6,38.2,2.9,50.3,2.9
-		        c12,0,23.3,4.7,31.9,13.2l-17,17c-4-4-9.2-6.2-14.8-6.2c-5.6,0-10.9,2.2-14.8,6.2c-4,4-6.2,9.2-6.2,14.8c0,5.6,2.2,10.9,6.2,14.8
-		        S44.7,69,50.3,69c5.6,0,10.9-2.2,14.8-6.2l17,17C73.6,88.3,62.3,93,50.3,93z" />
-
-                    <circle class="st0" cx="49.7" cy="47.4" r="11.6" />
-                        </g>
-                    </svg>
+                    <img class="mb-4" src="images/Coolicky_Logo.svg" height="72" width="72" />
                     <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
                 </div>
                 <div asp-validation-summary="All" class="text-danger"></div>
@@ -50,14 +32,14 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn-block btn btn-outline-light">Log in</button>
+                    <button type="submit" class="btn-block btn btn-outline-dark">Log in</button>
                 </div>
                 <div class="form-group mb-5">
                     <p>
-                        <a class="btn-block btn-outline-light btn" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        <a class="btn-block btn-outline-dark btn" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
                     </p>
                     <p>
-                        <a class="btn-block btn-outline-light btn" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        <a class="btn-block btn-outline-dark btn" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
                     </p>
                 </div>
             </form>
@@ -82,7 +64,7 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins)
                                 {
-                                    <button type="submit" class="btn-block btn btn-outline-light" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    <button type="submit" class="btn-block btn btn-outline-dark" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
                                 }
                             </p>
                         </div>
