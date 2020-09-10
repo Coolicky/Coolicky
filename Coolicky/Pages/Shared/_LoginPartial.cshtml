@@ -5,9 +5,9 @@
 @inject UserManager<IdentityUser> UserManager
 
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">
-            <img src="~/images/Coolicky_Logo_W.svg" class="logo" width="35" height="35" alt="" loading="lazy">
+            <img src="~/images/Coolicky_Logo.svg" class="logo" width="35" height="35" alt="" loading="lazy">
             <span class="align-middle ml-1 coolicky">Coolicky</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,11 +19,11 @@
                 {
 
                     <li class="nav-item active">
-                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserName(User)</a>
+                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><span>@UserManager.GetUserName(User)</span></a>
                     </li>
                     <li class="nav-item active">
                         <form method="post" asp-area="Identity" asp-page="/Account/Logout">
-                            <button type="submit" class="nav-link btn btn-link">Logout</button>
+                            <button type="submit" class="nav-link btn btn-link"><span>Logout</span></button>
                         </form>
                     </li>
                 }
@@ -31,7 +31,7 @@
                 {
 
                     <li class="nav-item active">
-                        <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login"><span>Login</span></a>
                     </li>
                 }
             </ul>

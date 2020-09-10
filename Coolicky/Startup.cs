@@ -34,6 +34,8 @@ namespace Coolicky
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
+            #region Auth
+
             var connectionString = Configuration["ConnectionStrings:DBLocation"];
             if (connectionString == null)
             {
@@ -48,6 +50,16 @@ namespace Coolicky
                 AddEntityFrameworkStores<AuthContext>();
 
             services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();
+
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                IConfigurationSection googleAuthNSection = Configuration.GetSection("Authentication:Google");
+
+                options.ClientId = googleAuthNSection["ClientId"];
+                options.ClientSecret = googleAuthNSection["ClientSecret"];
+            });
+
+            #endregion Auth
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
