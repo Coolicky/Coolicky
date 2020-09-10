@@ -12,17 +12,17 @@
                 <AuthorizeView>
                     <Authorized>
                         <li class="nav-item active">
-                            <a class="nav-link" href="Identity/Account/Manager">@context.User.Identity.Name</a>
+                            <a class="nav-link" asp-area="Identity" href="Identity/Account/Manage">@context.User.Identity.Name</a>
                         </li>
                         <li class="nav-item active">
-                            <form method="post" action="Identity/Account/LogOut">
+                            <form method="post" action="Identity/Account/Logout">
                                 <button type="submit" class="nav-link btn btn-link">Logout</button>
                             </form>
                         </li>
                     </Authorized>
                     <NotAuthorized>
                         <li class="nav-item active">
-                            <a class="nav-link" href="Identity/Account/Login">Login</a>
+                            <a class="nav-link" id="login" asp-area="Identity" href="Identity/Account/Login">Login</a>
                         </li>
                     </NotAuthorized>
                 </AuthorizeView>
