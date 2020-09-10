@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Coolicky.Data;
+using Coolicky.Utilities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -34,20 +35,24 @@ namespace Coolicky
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            var connectionString = Configuration["ConnectionStrings:DBLocation"];
-            if (connectionString == null)
-            {
-                connectionString = Environment.GetEnvironmentVariable("SQL_STRING");
-            }
+            #region Auth
 
             services.AddDbContext<AuthContext>(options =>
-                options.UseNpgsql(connectionString));
+                options.UseNpgsql(Variables.DatabaseString(Configuration)));
 
             services.AddDefaultIdentity<IdentityUser>().
                 AddRoles<IdentityRole>().
                 AddEntityFrameworkStores<AuthContext>();
 
             services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();
+
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                options.ClientId = Variables.GoogleClientId(Configuration);
+                options.ClientSecret = Variables.GoogleClientSecret(Configuration);
+            });
+
+            #endregion Auth
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
