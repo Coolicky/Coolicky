@@ -34,14 +34,6 @@ namespace Coolicky
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            if (Equals(!env.IsProduction()))
-            {
-                services.AddHttpsRedirection(options =>
-                {
-                    options.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
-                });
-            }
-
             services.AddDbContext<AuthContext>(options =>
                 options.UseNpgsql(Configuration["ConnectionStrings:DBLocation"]));
 
