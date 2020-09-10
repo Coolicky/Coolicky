@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Coolicky.Data;
+using Coolicky.Utilities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -36,14 +37,8 @@ namespace Coolicky
 
             #region Auth
 
-            var connectionString = Configuration["ConnectionStrings:DBLocation"];
-            if (connectionString == null)
-            {
-                connectionString = Environment.GetEnvironmentVariable("SQL_STRING");
-            }
-
             services.AddDbContext<AuthContext>(options =>
-                options.UseNpgsql(connectionString));
+                options.UseNpgsql(Variables.DatabaseString(Configuration)));
 
             services.AddDefaultIdentity<IdentityUser>().
                 AddRoles<IdentityRole>().
@@ -53,10 +48,8 @@ namespace Coolicky
 
             services.AddAuthentication().AddGoogle(options =>
             {
-                IConfigurationSection googleAuthNSection = Configuration.GetSection("Authentication:Google");
-
-                options.ClientId = googleAuthNSection["ClientId"];
-                options.ClientSecret = googleAuthNSection["ClientSecret"];
+                options.ClientId = Variables.GoogleClientId(Configuration);
+                options.ClientSecret = Variables.GoogleClientSecret(Configuration);
             });
 
             #endregion Auth
