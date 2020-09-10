@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,6 +33,14 @@ namespace Coolicky
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
+            if (Equals(!env.IsProduction()))
+            {
+                services.AddHttpsRedirection(options =>
+                {
+                    options.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
+                });
+            }
 
             services.AddDbContext<AuthContext>(options =>
                 options.UseNpgsql(Configuration["ConnectionStrings:DBLocation"]));
@@ -54,10 +63,10 @@ namespace Coolicky
             {
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
 
             app.UseHttpsRedirection();
-            app.UseHsts();
 
             app.UseStaticFiles();
 
