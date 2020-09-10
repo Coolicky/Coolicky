@@ -41,7 +41,7 @@ namespace Coolicky
             }
 
             services.AddDbContext<AuthContext>(options =>
-                options.UseNpgsql(Configuration["ConnectionStrings:DBLocation"]));
+                options.UseNpgsql(connectionString));
 
             services.AddDefaultIdentity<IdentityUser>().
                 AddRoles<IdentityRole>().
