@@ -34,6 +34,12 @@ namespace Coolicky
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
+            var connectionString = Configuration["ConnectionStrings:DBLocation"];
+            if (connectionString == null)
+            {
+                connectionString = Environment.GetEnvironmentVariable("SQL_STRING");
+            }
+
             services.AddDbContext<AuthContext>(options =>
                 options.UseNpgsql(Configuration["ConnectionStrings:DBLocation"]));
 
@@ -59,7 +65,6 @@ namespace Coolicky
             }
 
             app.UseHttpsRedirection();
-
             app.UseStaticFiles();
 
             app.UseRouting();
