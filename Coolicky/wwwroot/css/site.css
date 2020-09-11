@@ -71,16 +71,14 @@ body {
 
 @media only screen and (max-width: 991px) {
     .navbar-collapse {
-        background-color: #333333;
-        margin-top: 1rem;
+        background-color: rgba(255, 255, 255, 0.9);
+        margin-top: 1.25rem;
         border-radius: 0.25rem;
     }
 
         .navbar-collapse span {
             margin-left: 1rem;
             margin-right: 1rem;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
         }
 
         .navbar-collapse .btn {
@@ -89,13 +87,21 @@ body {
             text-align: left;
         }
 
-    .nav-link:hover, .nav-link:focus {
-        border-bottom: .25rem solid transparent;
-        border-bottom-color: rgba(255, 255, 255, 0);
-        background-color: #555555;
-        border-radius: 0.25rem;
-        transition: background-color 0.25s;
+    .nav-link {
+        height: 3rem;
     }
+
+        .nav-link span {
+            vertical-align: middle;
+        }
+
+        .nav-link:hover, .nav-link:focus {
+            border-bottom: .25rem solid transparent;
+            border-bottom-color: rgba(255, 255, 255, 0);
+            background-color: rgba(220, 220, 220, 0.9);
+            border-radius: 0.25rem;
+            transition: background-color 0.25s;
+        }
 }
 /*#endregion */
 
