@@ -38,7 +38,7 @@ namespace Coolicky
             #region Auth
 
             services.AddDbContext<AuthContext>(options =>
-                options.UseNpgsql(Variables.DatabaseString(Configuration)));
+                options.UseSqlServer(Variables.DatabaseString(Configuration)));
 
             services.AddDefaultIdentity<IdentityUser>().
                 AddRoles<IdentityRole>().
