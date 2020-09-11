@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Coolicky.Data;
+using Coolicky.Services;
 using Coolicky.Utilities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
@@ -15,6 +16,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Coolicky
@@ -40,7 +42,10 @@ namespace Coolicky
             services.AddDbContext<AuthContext>(options =>
                 options.UseSqlServer(Variables.DatabaseString(Configuration)));
 
-            services.AddDefaultIdentity<IdentityUser>().
+            services.AddDefaultIdentity<IdentityUser>(options =>
+                {
+                    options.SignIn.RequireConfirmedEmail = true;
+                }).
                 AddRoles<IdentityRole>().
                 AddEntityFrameworkStores<AuthContext>();
 
@@ -53,6 +58,9 @@ namespace Coolicky
             });
 
             #endregion Auth
+
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,9 +74,8 @@ namespace Coolicky
             {
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
-
-            app.UseHsts();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

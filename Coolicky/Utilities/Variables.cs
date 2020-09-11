@@ -40,5 +40,16 @@ namespace Coolicky.Utilities
 
             return googleSecret;
         }
+
+        public static string SendGridId(IConfiguration Configuration)
+        {
+            var sendgridId = Configuration["SendGridKey"];
+            if (sendgridId == null)
+            {
+                sendgridId = Environment.GetEnvironmentVariable("SENDGRID_KEY");
+            }
+
+            return sendgridId;
+        }
     }
 }

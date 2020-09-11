@@ -10,8 +10,13 @@ html, body {
 
 body {
     color: #0D1B2A;
+    margin-bottom: 56px;
 }
 
+.footer {
+    flex: 0 0 56px;
+    margin-top: auto;
+}
 /*#endregion */
 
 /*#region Blazor Error */
@@ -49,20 +54,20 @@ body {
     margin-bottom: 0.25rem;
 }
 
-.nav-link {
-    padding: .25rem 0;
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin-bottom: 0;
-    border-bottom: .25rem solid transparent;
-    border-bottom-color: rgba(0, 0, 0, 0);
-    transition: border-bottom-color 0.25s;
-}
-
-    .nav-link:hover, .nav-link:focus {
+    .navbar .nav-link {
+        padding: .25rem 0;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 0;
         border-bottom: .25rem solid transparent;
-        border-bottom-color: rgba(0, 0, 0, .50);
+        border-bottom-color: rgba(0, 0, 0, 0);
+        transition: border-bottom-color 0.25s;
     }
+
+        .navbar .nav-link:hover, .navbar .nav-link:focus {
+            border-bottom: .25rem solid transparent;
+            border-bottom-color: rgba(0, 0, 0, .50);
+        }
 
 .coolicky {
     font-size: 1.8rem;
@@ -87,15 +92,15 @@ body {
             text-align: left;
         }
 
-    .nav-link {
+    .navbar .nav-link {
         height: 3rem;
     }
 
-        .nav-link span {
+        .navbar .nav-link span {
             vertical-align: middle;
         }
 
-        .nav-link:hover, .nav-link:focus {
+        .navbar .nav-link:hover, .navbar .nav-link:focus {
             border-bottom: .25rem solid transparent;
             border-bottom-color: rgba(255, 255, 255, 0);
             background-color: rgba(220, 220, 220, 0.9);
@@ -257,16 +262,6 @@ body {
 
 /*#region SignIn */
 
-.asp-items {
-    position: relative;
-}
-
-    .asp-items .form-signin {
-        position: absolute;
-        top: 50%;
-        transform: translateY(50%);
-    }
-
 .form-signin {
     width: 100%;
     max-width: 350px;
@@ -309,4 +304,19 @@ input:-webkit-autofill:active {
 input:-webkit-autofill {
     -webkit-text-fill-color: #ffffff !important;
 }
+/*#endregion */
+
+/*#region Manage Tab */
+
+.nav-pills .nav-link {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+    .nav-pills .nav-link.active {
+        border: 1px solid #121212;
+        background-color: #ffffff;
+        color: #000000;
+    }
+
 /*#endregion */
