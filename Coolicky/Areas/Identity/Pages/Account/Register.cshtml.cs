@@ -31,6 +31,8 @@ namespace Coolicky.Areas.Identity.Pages.Account
             IEmailSender emailSender)
         {
             _userManager = userManager;
+            _userManager.Options.SignIn.RequireConfirmedAccount = true;
+
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
