@@ -39,7 +39,7 @@
                         <a class="btn-block btn-outline-dark btn" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
                     </p>
                     <p>
-                        <a class="btn-block btn-outline-dark btn" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        <a class="btn-block btn-outline-primary btn" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
                     </p>
                 </div>
             </form>
@@ -64,7 +64,18 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins)
                                 {
-                                    <button type="submit" class="btn-block btn btn-outline-dark" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    if (provider.Name == "Google")
+                                    {
+                                        <button type="submit" class="btn-block btn btn-outline-dark" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">
+                                            <img src="images/icons/Google_Logo.png" height="25" />
+                                        </button>
+
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" class="btn-block btn btn-outline-dark" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+
+                                    }
                                 }
                             </p>
                         </div>
