@@ -1,20 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Coolicky.Data;
 using Coolicky.Services;
-using Coolicky.Utilities;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -40,7 +32,7 @@ namespace Coolicky
             #region Auth
 
             services.AddDbContext<AuthContext>(options =>
-                options.UseSqlServer(Variables.DatabaseString(Configuration)));
+                options.UseSqlServer(Configuration["ConnectionStrings:DBLocation"]));
 
             services.AddDefaultIdentity<IdentityUser>(options =>
                 {
@@ -53,8 +45,18 @@ namespace Coolicky
 
             services.AddAuthentication().AddGoogle(options =>
             {
-                options.ClientId = Variables.GoogleClientId(Configuration);
-                options.ClientSecret = Variables.GoogleClientSecret(Configuration);
+                options.ClientId = Configuration["Authentication:Google:ClientId"];
+                options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+            })
+            //    .AddMicrosoftAccount(options =>
+            //{
+            //    options.ClientId = Configuration["Authentication:Microsoft:ClientId"];
+            //    options.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+            //})
+            .AddFacebook(options =>
+            {
+                options.AppId = Configuration["Authentication:Facebook:AppId"];
+                options.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
             });
 
             #endregion Auth
