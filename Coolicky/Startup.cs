@@ -55,6 +55,16 @@ namespace Coolicky
             {
                 options.ClientId = Variables.GoogleClientId(Configuration);
                 options.ClientSecret = Variables.GoogleClientSecret(Configuration);
+            })
+            //    .AddMicrosoftAccount(options =>
+            //{
+            //    options.ClientId = Configuration["Authentication:Microsoft:ClientId"];
+            //    options.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+            //})
+            .AddFacebook(options =>
+            {
+                options.AppId = Configuration["Authentication:Facebook:AppId"];
+                options.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
             });
 
             #endregion Auth
